@@ -5,7 +5,7 @@ import List from "../List";
 export default function App() {
 	const [data, setData] = useState([
 		{ id: 1, content: "Hello, World!", name: "Alice" },
-		{ id: 2, content: "Yaycha! This is Amazing", name: "Bob" },
+		{ id: 2, content: "Todo! This is Amazing", name: "Bob" },
 		{ id: 3, content: "React is fun!", name: "John" },
 	]);
 
@@ -13,6 +13,9 @@ export default function App() {
 	const [name, setName] = useState("");
 
 	const add = () => {
+		if (!content || !name) {
+			return;
+		}
 		const id = data[data.length - 1].id + 1;
 		setData([...data, { id: id, content: content, name: name }]);
 		setContent("");
